@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hamburger</title>
+    <style>
+        body{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #020010;
+}
+
+.hamburger-menu{
+    height: 4rem;
+    width: 3rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.bar{
+    width: 3rem;
+    height: 3px;
+
+    border-radius: 5rem;
+    background-color: #eee;
+    transition: .5s ;
+    position: relative;
+}
+
+.bar::before, .bar::after{
+    content: "";
+
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    border-radius: 5rem;
+    background: #eee;
+    transition: .5s;
+}
+
+.bar::before{
+    transform: translateY(-13px);
+}
+
+.bar::after{
+    transform: translateY(13px);
+}
+
+body.active .bar{
+    transform: rotate(360deg);
+    background-color: transparent;
+}
+
+body.active .bar::before{
+    transform: translateY(0) rotate(45deg);
+}
+
+body.active .bar::after{
+    transform: translateY(0) rotate(-45deg);
+}
+    </style>
+</head>
+<body>
+    <div class="hamburger-menu">
+        <div class="bar"></div>
+    </div>
+    
+    <script>
+        const hamburger_menu= document.querySelector(".hamburger-menu");
+
+        hamburger_menu.addEventListener("click", () => {
+            document.body.classList.toggle("active")
+        })
+    </script>
+</body>
+</html>

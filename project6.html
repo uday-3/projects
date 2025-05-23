@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accordian</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+    
+        /*Now the styles*/
+      * {
+        margin: 0; 
+        padding: 0;
+      }
+      body {
+        background: #ccc; 
+        font-family: arial, verdana, tahoma;
+      }
+
+      /*Time to apply widths for accordian to work
+      Width of image = 640px
+      total images = 5
+      so width of hovered image = 640px
+      width of un-hovered image = 40px - you can set this to anything
+      so total container width = 640 + 40*4 = 800px;
+      default width = 800/5 = 160px;
+      */
+
+      .accordian {
+        width: 805px; height: 320px;
+        overflow: hidden;
+        
+        /*Time for some styling*/
+        margin: 100px auto;
+        box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+        -webkit-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+        -moz-box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.35);
+      }
+
+      /*A small hack to prevent flickering on some browsers*/
+      .accordian ul {
+        width: 2000px;
+        /*This will give ample space to the last item to move
+        instead of falling down/flickering during hovers.*/
+      }
+
+      .accordian li {
+        position: relative;
+        display: block;
+        width: 160px;
+        float: left;
+        
+        border-left: 1px solid #888;
+        
+        box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+        -moz-box-shadow: 0 0 25px 10px rgba(0, 0, 0, 0.5);
+        
+        /*Transitions to give animation effect*/
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        /*If you hover on the images now you should be able to 
+        see the basic accordian*/
+      }
+
+      /*Reduce with of un-hovered elements*/
+      .accordian ul:hover li {width: 40px;}
+      /*Lets apply hover effects now*/
+      /*The LI hover style should override the UL hover style*/
+      .accordian ul li:hover {width: 640px;}
+
+
+      .accordian li img {
+        display: block;
+      }
+
+      /*Image title styles*/
+      .image_title {
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        left: 0; bottom: 0;	
+      width: 640px;	
+
+      }
+      .image_title a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        padding: 20px;
+        font-size: 16px;
+      } 
+
+
+      body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.accordion {
+    width: 80%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-item {
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-header {
+    margin: 0;
+}
+
+.accordion-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: none;
+    outline: none;
+    text-align: left;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.accordion-button:hover,
+.accordion-button:not(.collapsed) {
+    background-color: #e0e0e0;
+}
+
+.accordion-collapse {
+    display: none;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.accordion-collapse.show {
+    display: block;
+}
+
+.accordion-body {
+    padding: 15px;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+}
+
+.accordion-body p {
+    margin: 0;
+}
+
+  </style>
+</head>
+<body>
+    <!-- We will make a simple accordian with hover effects 
+The markup will have a list with images and the titles-->
+<div class="accordian">
+	<ul>
+		<li>
+			<div class="image_title  ">
+				<a href="#">KungFu Panda</a>
+			</div>
+			<a href="#">
+				<img src="http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg"/>
+			</a>
+		</li>
+		<li>
+			<div class="image_title">
+				<a href="#">Toy Story 2</a>
+			</div>
+			<a href="#">
+				<img src="http://thecodeplayer.com/uploads/media/40Ly3VB.jpg"/>
+			</a>
+		</li>
+		<li>
+			<div class="image_title">
+				<a href="#">Wall-E</a>
+			</div>
+			<a href="#">
+				<img src="http://thecodeplayer.com/uploads/media/00kih8g.jpg"/>
+			</a>
+		</li>
+		<li>
+			<div class="image_title">
+				<a href="#">Up</a>
+			</div>
+			<a href="#">
+				<img src="http://thecodeplayer.com/uploads/media/2rT2vdx.jpg"/>
+			</a>
+		</li>
+		<li>
+			<div class="image_title">
+				<a href="#">Cars 2</a>
+			</div>
+			<a href="#">
+				<img src="http://thecodeplayer.com/uploads/media/8k3N3EL.jpg"/>
+			</a>
+		</li>
+	</ul>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Accordion Item #1
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, unde ullam quos fugiat odio facilis nobis beatae qui vero harum est rerum saepe maxime, excepturi minus, quaerat nemo! Reprehenderit, blanditiis.</strong> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo ratione recusandae praesentium qui adipisci reiciendis laudantium, itaque fugiat consectetur, ad blanditiis dignissimos sint aliquid amet ducimus nihil eligendi quibusdam dolorum?
+        Ea officiis illo at dolor nesciunt. Eius voluptas architecto dolore blanditiis asperiores. Magni, dignissimos quidem officiis perferendis porro cupiditate iure quibusdam itaque laboriosam quis ullam recusandae dolor explicabo ea ab?
+        Ipsam excepturi quia beatae id omnis. Deleniti doloremque vero sint delectus nihil similique dolores assumenda, esse sed at eos, eum impedit ex expedita hic laborum architecto quas. Dolore, id rem.
+        Rerum in molestiae neque, ducimus saepe itaque voluptatem debitis officia, minus, nisi fuga temporibus nostrum pariatur. A aspernatur beatae corrupti deserunt, pariatur laudantium fugiat, eveniet provident mollitia vero quae expedita!
+        Ex earum sed quam eum impedit. Tempora soluta eum quas officiis eveniet tenetur, molestiae libero illo hic voluptate magnam distinctio! Sit recusandae consectetur veniam rem! Impedit, id. Officia, excepturi dolorum.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+

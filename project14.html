@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    font-family: sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: url("./images/project14.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.glass{
+    padding: 5rem 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    color: white;
+
+    /* glass effect  */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.324);
+}
+
+h1{
+    text-shadow: 3px 3px 2px rgba(0, 0, 0, 0.728);
+}
+    </style>
+</head>
+<body>
+    <div class="glass">
+        <h1>Glassmorphism Card</h1> <br>
+        
+    </div>
+</body>
+</html>
